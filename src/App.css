@@ -1,0 +1,47 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+.tab-group {
+  display: flex;
+  justify-content: center;
+  gap: 10vh;
+  font-size: 1.2rem;
+}
+
+#time-display {
+  margin: 0 auto;
+  min-height: 80px;
+  min-width: 160px;
+  padding: 2vh;
+  border: 1px solid rgba(255, 255, 255, 0.328);
+  border-radius: 2px;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10vh;
+  margin-top: 2vh;
+}
+
+.button-group button {
+  cursor: pointer;
+}
+/*
+<div className="tab-group">
+  <p id="work">Work</p>
+  <p id="break">Break</p>
+</div>
+<div id="time-display"></div>
+<div className="button-group">
+  <button>Start</button>
+  <button>Pause</button>
+  <button>Reset</button>
+</div>
+*/
