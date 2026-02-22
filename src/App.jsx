@@ -6,6 +6,8 @@ function App() {
   const [isRunning, setIsRunning] = useState(false)
   const [isWork, setIsWork] = useState(true)  
   const [seconds, setSeconds] = useState(25 * 60) // Stores seconds count (25mins)
+  const workTab = document.getElementById("work")
+  const breakTab = document.getElementById("break")
 
   const handleTab = (work) => {
     setIsWork(work)
@@ -25,15 +27,15 @@ function App() {
 
   const formatTime = (secs) => {
     const minutes = Math.floor(secs / 60);
-    const seconds = secs % 60
-    return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`
+    const secondsToDisplay = secs % 60
+    return `${String(minutes).padStart(2, "0")}:${String(secondsToDisplay).padStart(2, "0")}`
   }
 
   return (
     <>
       <div className="tab-group">
-        <p id="work" onClick={() => handleTab(true)}>Work</p>
-        <p id="break" onClick={() => handleTab(false)}>Break</p>
+        <p id="work" className={isWork ? "selected-tab" : ""} onClick={() => handleTab(true)}>Work</p>
+        <p id="break" className={!isWork ? "selected-tab" : ""} onClick={() => handleTab(false)}>Break</p>
       </div>
       <div id="time-display">{formatTime(seconds)}</div>
       <div className="button-group">

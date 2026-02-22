@@ -1,11 +1,13 @@
 body {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   padding: 0;
   margin: 0;
 }
+
 .tab-group {
   display: flex;
   justify-content: center;
@@ -14,12 +16,19 @@ body {
 }
 
 #time-display {
-  margin: 0 auto;
-  min-height: 80px;
-  min-width: 160px;
+  font-size: 2.8rem;
+  text-align: center;
   padding: 2vh;
   border: 1px solid rgba(255, 255, 255, 0.328);
   border-radius: 2px;
+  transition: 0.3s ease;
+}
+
+#time-display:hover {
+  box-shadow: 0 0 20px 1px rgba(225, 225, 225, 0.5);
+  transition: 0.3s ease;
+  background-color: white;
+  color: black;
 }
 
 .button-group {
@@ -32,6 +41,40 @@ body {
 
 .button-group button {
   cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.396);
+  border: 0;
+  border-radius: 5px;
+  padding: 1vh 2vh;
+  color: rgb(255, 89, 0);
+  transition: 0.3s ease;
+  font-weight: 600;
+}
+
+.button-group button:hover {
+  color: rgb(255, 0, 0);
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.tab-group p {
+  padding: 2vh;
+  position: relative;
+}
+
+.tab-group p::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: rgb(255, 89, 0);
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.tab-group p.selected-tab::after {
+  width: 100%;
+  left: 0;
 }
 /*
 <div className="tab-group">
