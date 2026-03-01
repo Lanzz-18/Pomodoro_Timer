@@ -6,8 +6,6 @@ function App() {
   const [isRunning, setIsRunning] = useState(false)
   const [isWork, setIsWork] = useState(true)  
   const [seconds, setSeconds] = useState(25 * 60) // Stores seconds count (25mins)
-  const workTab = document.getElementById("work")
-  const breakTab = document.getElementById("break")
 
   const handleTab = (work) => {
     setIsWork(work)
@@ -17,6 +15,9 @@ function App() {
 
   useEffect(() => {
     if(!isRunning){
+      return;
+    }
+    if(seconds < 0){
       return;
     }
     const timer = setInterval(() => {
